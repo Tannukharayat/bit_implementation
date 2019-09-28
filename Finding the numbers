@@ -1,0 +1,31 @@
+/* You are given an array A containing 2*N+2 positive numbers, out of which 2*N numbers exist in pairs whereas the other two number occur 
+exactly once and are distinct. You need to find the other two numbers and print them in ascending order */
+
+#include <bits/stdc++.h>
+using namespace std;
+int n,t;
+int main() 
+{
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+	    cin>>n;
+	    int arr[2*n+2],x=0;
+	    for(int j=0;j<2*n+2;j++)
+	    {
+	        cin>>arr[j];
+	        x=x^arr[j];
+	    }
+	    x=x&~(x-1);
+	    int xor1=0,xor2=0;
+	     for(int j=0;j<2*n+2;j++)
+	     {
+	         if(arr[j]&x)
+	         {
+	             xor1=xor1^arr[j];
+	         }else xor2=xor2^arr[j];
+	     }
+	    cout<<min(xor1,xor2)<<" "<<max(xor1,xor2)<<endl;
+	}
+	return 0;
+}
