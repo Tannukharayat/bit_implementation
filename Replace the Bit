@@ -1,0 +1,20 @@
+/* Given two numbers n and k, change the kth bit of the number n to '0' if it is  '1', else return the number n itself */
+
+#include <bits/stdc++.h>
+using namespace std;
+int n,t,k,x;
+int main() 
+{
+    cin>>t;
+    while(t--)
+    {
+    	cin>>n>>k;
+        x = floor(log2(n))+1;
+        x=x-k;
+    	if(n&(1<<x))
+    	{
+    	    cout<<(n^(1<<x))<<endl;
+    	}else cout<<n<<endl;
+    }
+	return 0;
+}
