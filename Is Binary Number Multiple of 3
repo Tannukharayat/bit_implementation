@@ -1,0 +1,31 @@
+/* Given a binary number, write a program that prints 1 if given binary number is a multiple of 3.  Else prints 0. The given number can be
+big upto 2^100. It is recommended to finish the task using one traversal of input binary string */
+
+#include <bits/stdc++.h>
+using namespace std;
+int t;
+string s;
+int main() 
+{
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        cin>>s;
+        int k=0,x=0;
+        for(int j=s.length()-1;j>=0;j--)
+        {
+            if(s[j]=='1'&&k%2==0)
+            {
+                x++;
+            }else if(s[j]=='1'&&k%2!=0)
+            {
+                x--;
+            }
+            k++;
+        }
+        if(x%3==0)
+        cout<<"1"<<endl;
+        else cout<<"0"<<endl;
+    }
+	return 0;
+}
